@@ -1,0 +1,5 @@
+modo escalera:async y await
+conceptos de APIS y estados de las peticiones HTTPS y tiempo de espera en las slicitudes http.
+
+palabras: cuelo de botella, cola en las base de datos, timeout
+modo secuencial:
