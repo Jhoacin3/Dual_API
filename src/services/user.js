@@ -38,7 +38,6 @@ exports.updateUser = async (userId, newData) => {
 
 //eliminar un usuario archivo service
 exports.deleteUser = async (userId)=>{
-  console.log("**********id", userId)
 
   await user.findByIdAndDelete(userId); // Buscar y eliminar el usuario por su id
 
