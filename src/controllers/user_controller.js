@@ -31,19 +31,22 @@ exports.createUser = async (req, res) => {
   }
 };
 
+//Logica de update para reemplazar los viejos registros con los nuevos
 exports.updateUser = async (req, res) => {
-  // Obtengo el id del usuario de los parámetros de la solicitud
+  // se obtiene el userID de los parametros de la req= request
+  // Obtengo el id del usuario y lo guardo en userId
   const userId = req.params.id; 
-    // construyendo el objeto con los datos a actualizar
+    // Aqui see construye un objeto updateData con los nuevos datos que provienen del body de la request= req:
   const updateData = {
     email: req.body.email,
     password: req.body.password,
     lastname: req.body.lastname,
     phone: req.body.phone,
-  } // Obtener los nuevos datos del usuario de los datos de la solicitud
+  } //Esto mapea cada propiedad del body a su correspondiente en el objeto updateData.
+  //Este objeto es el que se va a pasar al servicio para indicar qué campos actualizar y con qué datos nuevos.
 
   try {
-    const updatedUser = await userServices.updateUser(userId, updateData); // Llamar al servicio para actualizar el usuario
+    await userServices.updateUser(userId, updateData); // Llamo al servicio para actualizar el usuario
     // res.json(updatedUser);
     res.status(200).json("Usuario actualizado correctamente :)"); // Manejar cualquier error que ocurra
     // Responder con el usuario actualizado
